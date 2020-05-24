@@ -1,8 +1,8 @@
 ---
-title: "3d Render"
+title: "Home Page"
 mainImage: "/images/pic01.jpg"
 mainHeader: "Reflex"
-mainSummary: "<p>Lorem ipsum dolor sit magna consectetur<br />
+mainSummary: "<p>Pete thanks for time here is the example ipsum dolor sit magna<br />
 adipiscing elit. Duis dapibus rutrum facilisis.<br />Class aptent taciti sociosqu torquent.</p>"
 mainLink: "/generic/"
 container2heading: "Duis dapibus rutrum"
