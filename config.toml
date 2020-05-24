@@ -61,8 +61,8 @@ disableKinds = ["taxonomy", "taxonomyTerm"]
     weight = 80
 
 [params.style]
-  favicon = ["images/favicon.png"]
-  logo = ["images/logo.svg"]
+  favicon = ["images/favicon.ico"]
+  logo = ["images/android-chrome-512x512.png"]
 
 [params.footer]
   footerTitle = "Magna lorem ipsum"
@@ -70,6 +70,7 @@ disableKinds = ["taxonomy", "taxonomyTerm"]
   twitter = "/"
   instagram = "/"
   facebook = "/"
+  copyright = "&copy; Light. All rights reserved. Lorem ipsum dolor sit amet nullam."
 
 [params.cta] # Call To Action 
     show = true
