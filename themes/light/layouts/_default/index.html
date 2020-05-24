@@ -76,14 +76,12 @@
 <section class="wrapper style3 special">
 	<div class="inner">
 		<header>
-			<h2>Amet ullamcorper</h2>
-			<p>Aptent taciti sociosqu litora torquent et conubia sed etiam.<br />
-				Phasellus convallis elit id ullamcorper pulvinar. Duis aliquam<br />
-				turpis mauris, ultricies erat malesuada quis.</p>
+			<h2>{{.Params.container4heading}}</h2>
+			<p>{{safeHTML .Params.container4subHeading}}</p>
 		</header>
 		<footer>
 			<ul class="actions">
-				<li><a href="#" class="button big">Get Started</a></li>
+				<li><a href={{.Params.container4Link}} class="button big">Get Started</a></li>
 			</ul>
 		</footer>
 	</div>
