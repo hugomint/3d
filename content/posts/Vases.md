@@ -4,7 +4,7 @@ description: ""
 summary: "So far the code I have is always returning Status Code 200, but the host exist just in one of the IP I have set."
 images: "/images/vase_8b.jpg"
 draft: false
-layout: "sink"
+draw: []
 ---
 
 I’m making a tool, that can check a CIDR and see if a domain belongs to one server in the CIDR.

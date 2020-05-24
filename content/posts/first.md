@@ -6,7 +6,7 @@ image: "/images/cgi.jpg"
 draft: false
 menu: main
 weight: 20
-draw: ["blog", "flex"]
+draw: ["building", "flex"]
 ---
 
 Enviro-foam Qld, is an Australian owned and operated company. The first Enviro-foam factory was opened in 1988 and the Queensland factory has been going strong for over 20 years. The Enviro-foam name and branding was brought about by the way our foam was originally made; being the first company at the time to produce flexible polyurethane foam without the use of fluorocarbons.
