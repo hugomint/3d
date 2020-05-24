@@ -9,13 +9,13 @@ disableKinds = ["taxonomy", "taxonomyTerm"]
 [params]
   authorName = "Mr Mendes"
   description = "Some description about the site."
-  mainURL = "https://www.3drender.com/sitemap.xml"
+  mainURL = "https://3d.onrender.com/sitemap.xml"
   favicon = "favicon.ico"
   keywords = "some text, in here"
   google_tag_manager = ""
   google_analitycs_id = ""
   defaultContentLanguage = "en"
-  mainsiteURL = "https://www.hugomint.com"
+  mainsiteURL = "https://3d.onrender.com"
   image = "/images/screenshot.png"
   text = "<p>So many sentences order to process an asset with Hugo Pipes, it must be retrieved as a resource using resources.Get, which takes one argument</p>"
 
@@ -26,19 +26,19 @@ disableKinds = ["taxonomy", "taxonomyTerm"]
     [[related.indices]]
     name = "draw"
     weight = 90.0
-    [[related.indices]]
-    name = "3d"
-    weight = 98.0
+    # [[related.indices]]
+    # name = "3d"
+    # weight = 98.0
 
 # needed for the seach page
-[outputs]
-  home = ["HTML", "RSS", "JSON"]
+# [outputs]
+#   home = ["HTML", "RSS", "JSON"]
 
-[taxonomies]
-  taxonomy = "tags"
-  # used for open graph
-  series = "series"
-  categories = "cat"
+# [taxonomies]
+#   taxonomy = "tags"
+#   # used for open graph
+#   series = "series"
+#   categories = "cat"
 
 [menu]
   [[menu.main]]
