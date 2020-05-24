@@ -1,0 +1,92 @@
+{{ define "main"}}
+<!-- Intro -->
+<section id="intro" class="wrapper featured style1">
+	<div class="inner">
+		<span class="image"><img src={{.Params.mainImage}} alt="" /></span>
+		<div class="content">
+			<header>
+				<h1>{{.Params.mainHeader}}</h1>
+				{{safeHTML .Params.mainSummary}}
+			</header>
+			<footer>
+				<ul class="actions">
+					<li><a href={{.Params.mainLink}} class="button big">Get Started</a></li>
+				</ul>
+			</footer>
+		</div>
+	</div>
+</section>
+
+<!-- One -->
+<section class="wrapper style2 special">
+	<div class="inner">
+		<header>
+			<h2>{{.Params.container2heading}}</h2>
+			<p>{{safeHTML .Params.container2subHeading}}</p>
+		</header>
+		<ul class="icons major style2">
+			<li><span class="icon fa-code"><span class="label"></span></span></li>
+			<li><span class="icon fa-cog"><span class="label"></span></span></li>
+			<li><span class="icon fa-diamond"><span class="label"></span></span></li>
+		</ul>
+		<div class="centre">
+			<p class="container2text">{{.Params.container2text}}</p>
+		</div>
+		<footer>
+			<ul class="actions">
+				<li><a href={{.Params.container2Link}} class="button">Details</a></li>
+			</ul>
+		</footer>
+	</div>
+</section>
+
+<!-- Two -->
+<section class="wrapper style1 special">
+	<div class="inner">
+		<header>
+			<h2>{{.Params.container3heading}}</h2>
+			<p>{{safeHTML .Params.container3subHeading}}</p>
+		</header>
+
+		{{ $items := (where $.Site.RegularPages "Type" "info") }}
+		{{ $len := (len $items) }}
+		{{ range $i, $e := $items }}
+		{{ if le $i 1 }}
+		<section class="spotlight">
+			<span class="image"><img src={{.Params.image}} alt={{.Title}} /></span>
+			<div class="content">
+				<header>
+					<h3>{{.Title}}</h3>
+				</header>
+				<p>{{ .Content | truncate 180 }}</p>
+				<footer>
+					<ul class="actions">
+						<li><a href={{ $e.Permalink }} class="button">Details</a></li>
+					</ul>
+				</footer>
+			</div>
+		</section>
+		{{ end }}
+		{{ end }}
+
+	</div>
+</section>
+
+<!-- Three -->
+<section class="wrapper style3 special">
+	<div class="inner">
+		<header>
+			<h2>Amet ullamcorper</h2>
+			<p>Aptent taciti sociosqu litora torquent et conubia sed etiam.<br />
+				Phasellus convallis elit id ullamcorper pulvinar. Duis aliquam<br />
+				turpis mauris, ultricies erat malesuada quis.</p>
+		</header>
+		<footer>
+			<ul class="actions">
+				<li><a href="#" class="button big">Get Started</a></li>
+			</ul>
+		</footer>
+	</div>
+</section>
+
+{{end}}

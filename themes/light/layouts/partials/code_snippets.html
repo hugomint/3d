@@ -1,0 +1,158 @@
+{{/*  //TODO where and intersect: */}}
+{{ $characters := where .Site.Pages.ByTitle ".Params.novel" "intersect" (slice .Params.id)}}
+
+
+{{/* //TODO  where and in: */}}
+{{ $novels := where .Site.Pages.ByTitle ".Params.music" "in" .Params.key }}
+
+
+{{/* ---
+ //TODO series: golang
+--- */}}
+{{ range where .Site.Pages "Params.series" "golang" }}
+{{ .Content }}
+{{ end }}
+{{ range where .Pages "Section" "!=" "foo" }}
+{{ .Content }}
+{{ end }}
+{{range where .Pages ".Draft" true}}
+<p>{{.Title}}</p>
+{{end}}
+{{/*  //TODO ne Returns the boolean truth of arg1 != arg2 */}}
+{{ range where .Site.Pages ".Params.tags" "intersect" .Params.tags }}
+{{ if ne .Permalink $.Permalink }}
+{{ .Render "summary" }}
+{{ end }}
+{{ end }}
+{{ $v1 := where .Site.Pages "Params.a" "v1" }}
+{{ $v2 := where .Site.Pages "Params.b" "v2" }}
+{{ $filtered := $v1 | intersect $v2 }}
+{{ range $filtered }}
+{{ end }}
+{{/*  //TODO where with first */}}
+{{ range first 5 (where site.RegularPages "Type" "in" site.Params.mainSections) }}
+{{ .Content }}
+{{ end }}
+{{/*  //TODO nested */}}
+{{ range where (where .Pages "Section" "blog" ) ".Params.featured" "!=" true }}
+{{ end }}
+{{/*  //TODO check if feild exists */}}
+{{ range where .Pages ".Params.specialpost" "!=" nil }}
+{{ .Content }}
+{{ end }}
+
+
+{{/*  //TODO intersect SET1 SET2 */}}
+{{/*  //TODO Returns the common elements of two arrays or slices */}}
+{{ $pages := where .Site.RegularPages "Type" "not in" (slice "page" "about") }}
+{{ $pages := $pages | union (where .Site.RegularPages "Params.pinned" true) }}
+{{ $pages := $pages | intersect (where .Site.RegularPages "Params.images" "!=" nil) }}
+{{/*  //TODO fetches regular pages not of page or about type unless they are pinned. And finally, we exclude all pages with no images set in Page params. */}}
+
+
+{{/*  //TODO Given two arrays or slices, returns a new array that contains the elements or objects that belong to either or both arrays/slices. */}}
+{{ union (slice 1 2 3) (slice 3 4 5) }}
+<!-- returns [1 2 3 4 5] -->
+
+
+{{/* //TODO  collections.SymDiff (alias symdiff) returns the symmetric difference of two collections */}}
+{{ slice 1 2 3 | symdiff (slice 3 4) }}
+{{/*  //TODO The above will print [1 2 4] */}}
+
+
+{{/*  //TODO collections.Complement (alias complement) gives the elements of a collection that are not in any of the others */}}
+{{/*  //TODO The below is an imaginary use case for the home page where you want to display different page listings in sections/boxes on different places on the page: 5 from news, 5 from the blog and then 10 of the pages not shown in the other listings, to complement them */}}
+{{ $pages := .Site.RegularPages | first 50 }}
+{{ $news := where $pages "Type" "news" | first 5 }}
+{{ $blog := where $pages "Type" "blog" | first 5 }}
+{{ $other := $pages | complement $news $blog | first 10 }}
+
+
+{{ $s := slice "a" "b" "c" }}
+{{ $s = $s | append "d" "e" }}
+{{/* //TODO  $s now contains a []string with elements "a", "b", "c", "d", and "e" */}}
+{{ $s := slice "a" "b" "c" }}
+{{ $s = $s | append (slice "d" "e") }}
+
+
+{{/* //TODO  group groups a list of pages */}}
+{{/* //TODO  layouts/partials/groups.html */}}
+{{ $new := .Site.RegularPages | first 10 | group "New" }}
+{{ $old := .Site.RegularPages | last 10 | group "Old" }}
+{{ $groups := slice $new $old }}
+{{ range $groups }}
+<h3>{{ .Key }}{{/* Prints "New", "Old" */}}</h3>
+<ul>
+  {{ range .Pages }}
+  <li>
+    <a href="{{ .Permalink }}">{{ .Title }}</a>
+    <div class="meta">{{ .Date.Format "Mon, Jan 2, 2006" }}</div>
+  </li>
+  {{ end }}
+</ul>
+{{ end }}
+
+
+{{/* //TODO  terms by count */}}
+<section id="main" class="">
+  <div class="">
+    <h1 id="title">{{ .Title }}</h1>
+    {{ $data := .Data }}
+    {{ range $key,$value := .Data.Terms.ByCount }}
+    <h2>
+      <a href="{{ $data.Plural }}/{{ $value.Name | urlize }}">
+        {{ $value.Name }}
+      </a> {{ $value.Count }}
+    </h2>
+    {{ end }}
+  </div>
+</section>
+
+{{/* //TODO  DATE format */}}
+<div class="post-meta">
+  {{ .Date.Format "Mon, Jan 2, 2006" }}
+</div>
+
+{{/* //TODO  terms by count */}}
+<section id="main">
+  <div>
+    <h1 id="title">{{ .Title }}</h1>
+    {{ $data := .Data }}
+    {{ range $key,$value := .Data.Terms.ByCount }}
+    <h2><a href="{{ $data.Plural }}/{{ $value.Name | urlize }}"> {{ $value.Name }} </a> {{ $value.Count }} </h2>
+    {{ end }}
+  </div>
+</section>
+
+{{/* //TODO data pages by group date year */}}
+<section id="main">
+  <div>
+    <h1 id="title">{{ .Title }}</h1>
+    {{ range .Data.Pages.GroupByDate "2006" }}
+    <h2>{{ .Key }}</h2>
+    <ul id="list">
+      {{ range .Pages }}
+      {{ .Render "li"}}
+      {{ end }}
+    </ul>
+    {{ end }}
+  </div>
+</section>
+
+{{/* //TODO  condition class */}}
+{{ $geese := "geese" }}
+<h2 class="title {{ cond (eq (len $geese) 1) "has-text-primary" "has-text-info" }}">the baseof.html in the comments
+  folder in the layouts folder</h2>
+
+{{/* //TODO  related content */}}
+{{ $related := .Site.RegularPages.Related . | first 5 }}
+{{ with $related }}
+<h3>See Also</h3>
+<ul>
+  {{ range . }}
+  <li><a href="{{ .RelPermalink }}">{{ .Title }} -music {{ .Params.music }} -key {{ .Params.key }} -Type {{ .Type }}
+    </a></li>
+  {{ end }}
+</ul>
+<hr>
+{{ end }}

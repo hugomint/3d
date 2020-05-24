@@ -1,0 +1,46 @@
+{{/* date format 
+<div class="post-meta">{{ .Date.Format "Mon, Jan 2, 2006" }}</div>
+*/}}
+
+{{/* terms by count 
+<section id="main">
+  <div>
+   <h1 id="title">{{ .Title }}</h1>
+   {{ $data := .Data }}
+    {{ range $key, $value := .Data.Terms.ByCount }}
+    <h2><a href="{{ $data.Plural }}/{{ $value.Name | urlize }}"> {{ $value.Name }} </a> {{ $value.Count }} </h2>
+    {{ end }}
+  </div>
+</section>
+*/}}
+
+{{/* data pages by group date year 
+<section id="main">
+  <div>
+   <h1 id="title">{{ .Title }}</h1>
+            {{ range .Data.Pages.GroupByDate "2006" }}
+            <h2>{{ .Key }}</h2>
+                <ul id="list">
+                    {{ range .Pages }}
+                        {{ .Render "li"}}
+                    {{ end }}
+                </ul>
+            {{ end }}
+  </div>
+</section>
+*/}}
+
+{{/* with is like if ststement 
+{{with .Description }}<meta name="description" content="{{ . }}">{{end}}
+*/}}
+
+{{/* range over .Data.Pages 
+<section id="main">
+  <div>
+   <h1 id="title">{{ .Title }}</h1>
+    {{ range .Data.Pages }}
+        {{ .Render "summary"}}
+    {{ end }}
+  </div>
+</section>
+*/}}

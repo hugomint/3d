@@ -1,0 +1,20 @@
+{{ define "main" }}
+
+<!-- Main -->
+<section id="main" class="wrapper style1">
+  <div class="inner">
+    <header class="major">
+      <h1>{{.Title}}</h1>
+      <p>{{.Params.description}}</p>
+    </header>
+    <span class="image main"><img src={{.Params.image}} alt={{.Title}} /></span>
+    {{.Content}}
+    <div>
+      <hr>
+      {{ partial "related.html" . }}
+    </div>
+  </div>
+
+</section>
+
+{{ end }}

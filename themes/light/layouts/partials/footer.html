@@ -1,0 +1,41 @@
+<!-- Footer -->
+<section id="footer" class="wrapper split style2">
+  <div class="row">
+    <div class="5u 12u$(medium)">
+      <header>
+        <h3>{{.Site.Params.footer.footerTitle}}</h3>
+      </header>
+      <p>{{.Site.Params.footer.footerText}}</p>
+      <ul class="icons">
+        <li><a href={{.Site.Params.footer.twitter}} class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+        <li><a href={{.Site.Params.footer.instagram}} class="icon fa-instagram"><span class="label">Instagram</span></a>
+        </li>
+        <li><a href={{.Site.Params.footer.facebook}} class="icon fa-facebook"><span class="label">FaceBook</span></a>
+        </li>
+      </ul>
+    </div>
+    <div class="2u 12u$(medium)">
+      <header>
+        <h3>Menu</h3>
+      </header>
+      <ul class="alt">
+        {{ range .Site.Menus.main }}
+        <li><a href={{ .URL }}>{{ .Title }}</a></li>
+        {{end}}
+      </ul>
+    </div>
+    <div class="5u 12u$(medium)">
+      <form method="post" action="#">
+        <div class="field half first"><input type="text" name="name" id="name" placeholder="Name" /></div>
+        <div class="field half"><input type="email" name="email" id="email" placeholder="Email" /></div>
+        <div class="field"><textarea name="message" id="message" placeholder="Message" rows="4"></textarea></div>
+        <ul class="actions">
+          <li><input type="submit" value="Send Message" /></li>
+        </ul>
+      </form>
+    </div>
+  </div>
+  <div class="copyright">
+    <p>&copy; Untitled. All rights reserved. Lorem ipsum dolor sit amet nullam.</p>
+  </div>
+</section>

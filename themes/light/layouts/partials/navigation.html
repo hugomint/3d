@@ -1,0 +1,18 @@
+<!-- Header -->
+<header id="header">
+  <nav>
+    <ul>
+      <li><a href="#menu">Menu</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- Menu -->
+<nav id="menu">
+  <h2>Menu</h2>
+  <ul class="links">
+    {{ range .Site.Menus.main }}
+    <li><a href={{ .URL }}>{{ .Title }}</a></li>
+    {{end}}
+  </ul>
+</nav>

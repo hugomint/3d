@@ -1,0 +1,92 @@
+theme = "light"
+title = "light"
+baseurl = "/"
+language = "en-us"
+paginate = 3
+enableRobotsTXT = true
+disableKinds = ["taxonomy", "taxonomyTerm"]
+
+[params]
+  authorName = "Mr Mendes"
+  description = "Some description about the site."
+  mainURL = "https://www.3drender.com/sitemap.xml"
+  favicon = "favicon.ico"
+  keywords = "some text, in here"
+  google_tag_manager = ""
+  google_analitycs_id = ""
+  defaultContentLanguage = "en"
+  mainsiteURL = "https://www.hugomint.com"
+  image = "/images/screenshot.png"
+  text = "<p>So many sentences order to process an asset with Hugo Pipes, it must be retrieved as a resource using resources.Get, which takes one argument</p>"
+
+[related]
+  threshold = 80.0
+  includeNewer = true
+  toLower = false
+    [[related.indices]]
+    name = "draw"
+    weight = 90.0
+    [[related.indices]]
+    name = "3d"
+    weight = 98.0
+
+# needed for the seach page
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+
+[taxonomies]
+  taxonomy = "tags"
+  # used for open graph
+  series = "series"
+  categories = "cat"
+
+[menu]
+  [[menu.main]]
+    identifier = "home"
+    name = "Home"
+    title = "Home"
+    url = "/"
+    weight = 10
+  [[menu.main]]
+    identifier = "posts"
+    name = "Articles"
+    title = "Articles"
+    url = "/posts/"
+    weight = 90
+  [[menu.main]]
+    identifier = "draw"
+    name = "Draw"
+    title = "Draw"
+    url = "/info/draw/"
+    weight = 80
+
+[params.style]
+  favicon = ["images/favicon.png"]
+  logo = ["images/logo.svg"]
+
+[params.footer]
+  footerTitle = "Magna lorem ipsum"
+  footerText = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos magna fames ac turpis egestas amet non lorem amet."
+  twitter = "/"
+  instagram = "/"
+  facebook = "/"
+
+[params.cta] # Call To Action 
+    show = true
+    cta = "Contact"
+    link = "contact" # Relative URL
+
+[params.form] # Contact form
+    netlify = true
+    action = "https://formspree.io/your@email.com"
+    method = "POST"
+    inputNameName = "name"
+    inputNameLabel = "Name"
+    inputNamePlaceholder = "Your name"
+    inputEmailName = "email"
+    inputEmailLabel = "Email"
+    inputEmailPlaceholder = "Your email"
+    inputMsgName = "message"
+    inputMsgLabel = "Write something"
+    inputMsgLength = 750
+    inputSubmitValue = "Send"

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+{{/* placing the partial template head.html - indicates no white space */}}
+{{- partial "head.html" . -}}
+
+{{/* {{ define title to use in the head.html page to over ride the title block this will be sent down to all templates }} */}}
+{{ define "title" }}
+{{ .Site.Title }} - {{ .Title }}
+{{ end }}
+
+<body>
+    {{- partial "nav.html" . -}}
+    {{/* inserting the main block defined in the index page layouts/index.html */}}
+    {{- block "main" . }}{{- end }}
+</body>
+
+</html>

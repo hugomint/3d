@@ -1,0 +1,23 @@
+{{ define "main" }}
+{{ $paginator := .Paginate .Data.Pages.ByDate.Reverse }}
+
+<section id="main" class="wrapper style1">
+  <div class="inner">
+    <h2>List of pages</h2>
+    <div class="row">
+      <div class="12u 12u$(medium)">
+        <ul class="alt">
+          {{ range $paginator.Pages }}
+          <li>
+            <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+            <p>{{.Summary}}</p>
+          </li>
+          {{ end }}
+        </ul>
+        {{ partial "paginate.html" . }}
+      </div>
+    </div>
+  </div>
+</section>
+
+{{ end }}

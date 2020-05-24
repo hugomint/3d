@@ -1,0 +1,19 @@
+{{ partial "head.html" . }}
+
+<body>
+  {{ partial "navigation.html" . }}
+
+
+  <!-- Wrapper -->
+  <div id="wrapper">
+
+    {{- block "main" . }}{{- end }}
+
+    {{ partial "footer.html" . }}
+  </div>
+
+  {{ partial "scripts.html" . }}
+
+</body>
+
+</html>
