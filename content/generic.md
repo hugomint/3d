@@ -1,6 +1,6 @@
 ---
-title: "Elements"
-draft: false
-summary: "Lorem ipsum dolor qld magna consectetur"
-layout: "generic"
+title: Elements
+summary: Lorem ipsum dolor qld magna consectetur dave
+layout: generic
+
 ---
